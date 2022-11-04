@@ -43,8 +43,14 @@ describe("AppointmentsDayView", () => {
 
   const today = new Date();
   const twoAppointments = [
-    { startsAt: today.setHours(12, 0) },
-    { startsAt: today.setHours(13, 0) }
+    { 
+      startsAt: today.setHours(12, 0),
+      customer: { firstName: "Ashley" }
+    },
+    { 
+      startsAt: today.setHours(13, 0),
+      customer: { firstName: "Jordan" }
+    }
   ];
 
   beforeEach(() => {
@@ -109,6 +115,6 @@ describe("AppointmentsDayView", () => {
         appointments={twoAppointments} 
       />
     );
-    expect(document.textContent).toContain("Ashley");
+    expect(document.body.textContent).toContain("Ashley");
   });
 });
