@@ -95,4 +95,20 @@ describe("AppointmentsDayView", () => {
       "13:00"
     );
   });
+
+  it("initially shows a message saying there are no appointments today", () => {
+    render(<AppointmentsDayView appointments={[]} />);
+    expect(document.body.textContent).toContain(
+      "There are no appointments scheduled for today."
+    );
+  });
+
+  it("selects the first appointment by default", () => {
+    render(
+      <AppointmentsDayView 
+        appointments={twoAppointments} 
+      />
+    );
+    expect(document.textContent).toContain("Ashley");
+  });
 });
