@@ -5,6 +5,10 @@ import {
   Appointment,
   AppointmentsDayView,
 } from "../src/AppointmentsDayView";
+import {
+  container,
+  initializeReactContainer
+} from "./reactTestExtensions";
 
 describe("Appointment", () => {
   const blankCustomer = {
@@ -13,11 +17,8 @@ describe("Appointment", () => {
     phoneNumber: "",
   };
 
-  let container;
-
   beforeEach(() => {
-    container = document.createElement("div");
-    document.body.replaceChildren(container);
+    initializeReactContainer()
   });
 
   const render = (component) =>
@@ -190,11 +191,8 @@ describe("AppointmentsDayView", () => {
     },
   ];
 
-  let container;
-
   beforeEach(() => {
-    container = document.createElement("div");
-    document.body.replaceChildren(container);
+    initializeReactContainer()
   });
 
   const render = (component) =>
